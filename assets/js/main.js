@@ -33,6 +33,12 @@ $(function () {
     });
 
 
+    // mobile menu collapse
+    $('.navbar-nav .nav-item a').on('click', function(){
+        $('.navbar-collapse').removeClass('show');
+        $('.navbar-toggler').removeClass('active');
+    });
+
     //Service-Read More Buttons
     $('.read_more_btn_2 button').on('click', function () {
         $('.list_2').toggleClass('active');
