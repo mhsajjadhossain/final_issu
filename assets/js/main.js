@@ -2,6 +2,11 @@ $(function () {
 
     "use strict";
 
+    // preloader js
+    $(window).on('load', function(event) {
+        $('.preloader').delay(500).fadeOut(500);
+    });
+
     // scroll it
     $.scrollIt({
         upKey: 38,             // key code to navigate to the next section

@@ -9,9 +9,9 @@
 /*===========================
     1. Theme default css 
 ===========================*/
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 /* Google Fonts Css */
@@ -23,7 +23,7 @@ body {
   font-style: normal;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
- overflow-x: hidden !important;
+  overflow-x: hidden !important;
 
 }
 
@@ -54,8 +54,10 @@ a {
 
 a,
 button {
-  transition: all 0.3s linear;;
+  transition: all 0.3s linear;
+  ;
 }
+
 h1,
 h2,
 h3,
@@ -108,14 +110,16 @@ p {
 }
 
 .bg_cover {
-	background-position: center center !important;
-	background-size: cover !important;
-	background-repeat: no-repeat !important;
-	width: 100%;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  width: 100%;
 }
-.bd-none{
-    border: none;
+
+.bd-none {
+  border: none;
 }
+
 .text-space {
   letter-spacing: 10px;
 }
@@ -205,6 +209,122 @@ p {
   border-color: #d8b572;
 }
 
+/* PRELOADER CSS */
+.preloader {
+  position: fixed;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+/*Demo specific style begin */
+.loader-dots {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 40px);
+}
+
+/* Demo specific style end */
+
+.loader-dots:before,
+.loader-dots:after {
+  height: 20px;
+  width: 45px;
+  background-image: radial-gradient(closest-side, #967637 100%, transparent), radial-gradient(closest-side, #d8b572 100%, transparent);
+  background-position: 0%, 100%;
+  background-size: 20px 20px, 20px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-name: spin, onOff;
+  content: '';
+  transition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
+  -o-transition: all .3s linear;
+}
+
+.loader-dots:before {
+  animation-direction: normal, reverse;
+}
+
+.loader-dots:after {
+  right: 0px;
+  animation-direction: reverse, normal;
+}
+
+.loader-dots {
+  height: 20px;
+  width: 70px;
+  background-image: radial-gradient(closest-side, #d8b572 100%, transparent), radial-gradient(closest-side, #d8b572 100%, transparent);
+  background-position: 0%, 100%;
+  background-size: 20px 20px, 20px 20px;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: toggle 0.8s ease-in-out infinite;
+  transition: all .3s linear;
+  -webkit-transition: all .3s linear;
+  -moz-transition: all .3s linear;
+  -ms-transition: all .3s linear;
+  -o-transition: all .3s linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  50% {
+    transform: rotate(180deg)
+  }
+
+  100% {
+    transform: rotate(180deg)
+  }
+}
+
+@keyframes onOff {
+  0% {
+    opacity: 0;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes toggle {
+  0% {
+    background-size: 0px 0px, 20px 20px
+  }
+
+  49.9% {
+    background-size: 0px 0px, 20px 20px
+  }
+
+  50% {
+    background-size: 20px 20px, 0px 0px
+  }
+
+  100% {
+    background-size: 20px 20px, 0px 0px
+  }
+}
+
 /*===========================
 02.HEADER CSS 
 ===========================*/
@@ -220,43 +340,48 @@ p {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
 }
+
 /*Css for sticky menu */
 
 .header-area.sticky {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	background: #fff;
-	z-index: 999;
-    border-bottom: 1px solid #cecece;
-    -webkit-box-shadow: 0px 0px 191px 0px rgba(0,0,0,0.06);
-    box-shadow: 0px 0px 191px 0px rgba(0,0,0,0.06);
-    -webkit-animation: sticky 2s;
-    animation: sticky 2s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 999;
+  border-bottom: 1px solid #cecece;
+  -webkit-box-shadow: 0px 0px 191px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 0px 191px 0px rgba(0, 0, 0, 0.06);
+  -webkit-animation: sticky 2s;
+  animation: sticky 2s;
 }
+
 /*For Animation*/
 @-webkit-keyframes sticky {
-    0%{
-        -webkit-transform: translateY(-100%);
-        transform: translateY(-100%)
-    }
-    100%{
-        -webkit-transform: translateY(0%);
-        transform: translateY(0%)
-    }
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%)
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%)
+  }
 }
 
 @keyframes sticky {
-    0%{
-        -webkit-transform: translateY(-100%);
-        transform: translateY(-100%)
-    }
-    100%{
-        -webkit-transform: translateY(0%);
-        transform: translateY(0%)
-    }
+  0% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%)
+  }
+
+  100% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%)
+  }
 }
+
 .navbar-nav .nav-item a {
   display: inline-block;
   text-align: center;
@@ -276,6 +401,7 @@ p {
 .header-area.sticky .navbar-nav .nav-item a {
   box-shadow: 0 0 10px 1px rgba(68, 68, 68, 0.11);
 }
+
 .navbar-nav .nav-item a::before {
   position: absolute;
   content: '';
@@ -417,9 +543,11 @@ p {
   -o-border-radius: 50%;
   transform: translateY(-50%);
 }
-.banner_text > ul li:last-child:before {
-display: none;
+
+.banner_text>ul li:last-child:before {
+  display: none;
 }
+
 .banner_text>ul li p {
   font-size: 24px;
   color: #ffffff;
@@ -531,32 +659,40 @@ display: none;
 }
 
 /* popup form css start */
-.order_popup{
+.order_popup {
   display: none;
-  position: fixed; /* Stay in place */
+  position: fixed;
+  /* Stay in place */
   z-index: 99999;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
+
 .popup_close {
-	position: absolute;
-	background: #D8B572;
-	border: 0;
-	color: #fff;
-	font-size: 21px;
-	cursor: pointer;
-	width: 100px;
-	height: 100px;
-	right: -20px;
-	top: -25px;
-	border-radius: 50%;
-	z-index: 9;
+  position: absolute;
+  background: #D8B572;
+  border: 0;
+  color: #fff;
+  font-size: 21px;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  right: -20px;
+  top: -25px;
+  border-radius: 50%;
+  z-index: 9;
 }
+
 .popup_form {
   background: #ffffff;
   padding: 30px;
@@ -564,14 +700,15 @@ display: none;
   overflow: hidden;
   position: relative;
 }
+
 .popup_heading {}
 
 .popup_heading h2 {
-	font-size: 26px;
-	font-weight: 400;
-	position: relative;
-	padding-bottom: 20px;
-	margin-bottom: 28px;
+  font-size: 26px;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .popup_heading h2::before {
@@ -597,14 +734,17 @@ display: none;
   text-align: center;
   display: none;
 }
-.checkbox_list.active{
+
+.checkbox_list.active {
   display: block;
 }
+
 .form_cat_op .checkbox_list li {
-	display: inline-block;
+  display: inline-block;
   padding-right: 15px;
   margin-top: 14px;
 }
+
 .checkbox_list li label {
   color: #444444;
   font-size: 18px;
@@ -617,18 +757,18 @@ display: none;
   display: none;
 }
 
-.checkbox_list li input[type="checkbox"] + label span {
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	margin: -4px 8px 0 0;
-	vertical-align: middle;
-	cursor: pointer;
-	-moz-border-radius: 50%;
-	border-radius: 50%;
-	border: 2px solid #dddddd;
-	background: #dddddd;
-	position: relative;
+.checkbox_list li input[type="checkbox"]+label span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: -4px 8px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #dddddd;
+  background: #dddddd;
+  position: relative;
 }
 
 .checkbox_list li input[type="checkbox"]+label span:before {
@@ -657,6 +797,7 @@ display: none;
   background: #bc9241;
   border-color: #bc9241;
 }
+
 .checkbox_list li input[type="checkbox"]:checked+label {
   color: #bc9241;
 }
@@ -677,14 +818,15 @@ display: none;
   transition: background-color 0.2s linear;
 }
 
-.checkbox_list li input[type="checkbox"] + label span {
-border-radius: 3px;
+.checkbox_list li input[type="checkbox"]+label span {
+  border-radius: 3px;
 }
+
 .read_more_btn_2 {
-	text-align: right;
-	margin-bottom: 19px;
-	padding-top: 16px;
-	padding-bottom: 20px;
+  text-align: right;
+  margin-bottom: 19px;
+  padding-top: 16px;
+  padding-bottom: 20px;
 }
 
 .read_more_btn_2 button {
@@ -699,6 +841,7 @@ border-radius: 3px;
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
 }
+
 .read_more_btn_2 button span {
   width: 8px;
   height: 8px;
@@ -706,10 +849,12 @@ border-radius: 3px;
   margin: 0 3px;
   border-radius: 50%;
 }
+
 /* input area */
-.form_items{
+.form_items {
   padding: 0 80px;
 }
+
 .single_input input {
   width: 100%;
   border: 1px solid #dddddd;
@@ -1323,10 +1468,11 @@ border-radius: 3px;
 .copyright_area p {
   color: rgba(241, 241, 241, 0.90);
 }
+
 /*===========================
     08.BACK-TO-TOP CSS 
 ===========================*/
-.back-to-top{
+.back-to-top {
   position: fixed;
   right: 40px;
   bottom: 40px;
@@ -1346,7 +1492,8 @@ border-radius: 3px;
   -ms-transition: all 0.4s linear;
   -o-transition: all 0.4s linear;
 }
-.back-to-top:hover{
+
+.back-to-top:hover {
   color: #fff;
   background-color: #444444;
 }
